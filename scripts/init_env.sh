@@ -7,13 +7,13 @@
 
 check_ssh_access() {
     # Attempt to connect to GitHub via SSH and check for successful authentication
-    ssh -T git@github.com 2>&1 | grep -q "successfully authenticated"
+    ssh -T git@github-boringtaskai 2>&1 | grep -q "successfully authenticated"
     return $?
 }
 
 MAIN_REPOSITORIES=(
-  "okio-ai/nendo-web"
-  "okio-ai/nendo-server"
+  "boringtaskai/nendo-web"
+  "boringtaskai/nendo-server"
 )
 DEV_REPOSITORIES=(
     "okio-ai/nendo"
@@ -34,7 +34,7 @@ DEV_REPOSITORIES=(
 # clone all main repos
 if check_ssh_access; then
   for repo in "${MAIN_REPOSITORIES[@]}"; do
-    CLONE_URL="git@github.com:${repo}.git"
+    CLONE_URL="git@github-boringtaskai:${repo}.git"
     git clone "${CLONE_URL}" "../repo/$(basename "${repo}")"
   done
 else
@@ -50,7 +50,7 @@ if [[ "$1" == "dev" ]]; then
   # clone all development repos
   if check_ssh_access; then
     for repo in "${DEV_REPOSITORIES[@]}"; do
-      CLONE_URL="git@github.com:${repo}.git"
+      CLONE_URL="git@github-boringtaskai:${repo}.git"
       git clone "${CLONE_URL}" "../build/dependencies/$(basename "${repo}")"
     done
   else
