@@ -28,6 +28,12 @@ FROM base as dev
 COPY dependencies/nendo_plugin_musicgen /home/nendo/nendo_plugin_musicgen
 COPY dependencies/nendo_plugin_classify_core /home/nendo/nendo_plugin_classify_core
 COPY dependencies/nendo_plugin_stemify_demucs /home/nendo/nendo_plugin_stemify_demucs
+<<<<<<< HEAD
 RUN pip install /home/nendo/nendo_plugin_musicgen
 RUN pip install /home/nendo/nendo_plugin_classify_core
 RUN pip install --ignore-installed /home/nendo/nendo_plugin_stemify_demucs
+=======
+RUN pip install /home/nendo/nendo_plugin_classify_core
+RUN pip install /home/nendo/nendo_plugin_stemify_demucs
+RUN pip install /home/nendo/nendo_plugin_musicgen
+>>>>>>> 83073e15ee75782e4bc889d75b3d53830240cf30
